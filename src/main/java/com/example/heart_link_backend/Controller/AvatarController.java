@@ -10,7 +10,7 @@ import  java.util.*;
 
 @RestController
 @RequestMapping("/avatars")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://heart-link-lilac.vercel.app")
 public class AvatarController {
 
     @Autowired

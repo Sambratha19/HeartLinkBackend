@@ -14,7 +14,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://heart-link-lilac.vercel.app")
 public class AuthController {
     private final AuthService service;
 

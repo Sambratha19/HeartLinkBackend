@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/message")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "https://heart-link-lilac.vercel.app")
 public class MessageController {
     private final MessageService messageService;
 
