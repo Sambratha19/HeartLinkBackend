@@ -20,6 +20,7 @@ public class AuthController {
 
     @PostMapping("/signup")
     public String signup(@RequestBody AuthRequest request) {
+        System.out.println("Signup endpoint called");
         return service.signup(request);
     }
 
