@@ -20,7 +20,13 @@ public class CorsConfig {
                 "http://localhost:3000",
                 "https://heart-link-lilac.vercel.app"
         ));
-        config.setAllowedMethods(List.of("*"));
+        config.setAllowedMethods(List.of(
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS"
+        ));
         config.setAllowedHeaders(List.of("*"));
         config.setAllowCredentials(true);
 
