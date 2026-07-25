@@ -15,7 +15,7 @@ public class EmailService {
 
 
     public  void sendVerificationEmail(String email, String token){
-        String link = "http://localhost:8080/auth/verify?token=" + token;
+        String link = "https://heartlinkbackend.onrender.com/auth/verify?token=" + token;
 
         String message = """
                 Welcome to Heart Link ❤️
@@ -38,7 +38,7 @@ public class EmailService {
 
     public void sendInviteEmail(String toEmail, String senderEmail, String senderName, Long inviteId) {
 
-        String baseUrl = "http://localhost:8080"; // change to deployed URL later
+        String baseUrl = "https://heartlinkbackend.onrender.com"; // change to deployed URL later
 
         String acceptLink = baseUrl + "/invite/accept/" + inviteId;
         String rejectLink = baseUrl + "/invite/reject/" + inviteId;
