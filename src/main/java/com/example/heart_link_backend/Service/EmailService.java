@@ -1,10 +1,8 @@
 package com.example.heart_link_backend.Service;
 
-import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -27,13 +25,18 @@ public class EmailService {
         messages.setTo(email);
         messages.setSubject("Heart Link ❤️ Email Verification");
         messages.setText("Welcome to Heart Link!\n\nClick below to verify your email:\n" + link);
+        try {
+            mailSender.send(messages);
 
-        mailSender.send(messages);
+            System.out.println("Email sent successfully to: " + email);
+            // TODO: integrate SMTP (Gmail / SendGrid)
+            System.out.println("Sending email to: " + email);
+            System.out.println("Message: " + message);
+        }
+        catch(Exception e){
+            System.out.println("Email sending failed: " + e.getMessage());
+        }
 
-        System.out.println("Email sent successfully to: " + email);
-        // TODO: integrate SMTP (Gmail / SendGrid)
-        System.out.println("Sending email to: " + email);
-        System.out.println("Message: " + message);
     }
 
     public void sendInviteEmail(String toEmail, String senderEmail, String senderName, Long inviteId) {
