@@ -22,7 +22,8 @@ public class SercurityConfig {
                         .requestMatchers("/invite/**").permitAll()
                         .requestMatchers("/message/**").permitAll()
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                        .anyRequest().authenticated()
+//                        .anyRequest().authenticated()
+                                .anyRequest().permitAll()
                 );
 
 
