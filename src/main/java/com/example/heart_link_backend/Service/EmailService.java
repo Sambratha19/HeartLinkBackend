@@ -22,6 +22,7 @@ public class EmailService {
                 """ + link;
 
         SimpleMailMessage messages = new SimpleMailMessage();
+        messages.setFrom("sithukitu1616@gmail.com");
         messages.setTo(email);
         messages.setSubject("Heart Link ❤️ Email Verification");
         messages.setText("Welcome to Heart Link!\n\nClick below to verify your email:\n" + link);
