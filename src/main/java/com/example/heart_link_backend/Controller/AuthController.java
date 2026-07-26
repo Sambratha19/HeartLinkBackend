@@ -5,6 +5,7 @@ import com.example.heart_link_backend.Repository.UserRepository;
 import com.example.heart_link_backend.Service.AuthService;
 import com.example.heart_link_backend.dto.AuthRequest;
 import com.example.heart_link_backend.dto.AuthResponse;
+import com.example.heart_link_backend.dto.ForgotPasswordRequest;
 import com.example.heart_link_backend.dto.resetPasswordRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -94,7 +95,7 @@ public class AuthController {
 
     @PostMapping("/forgot-password")
     public ResponseEntity<String> forgotPassword(
-            @RequestBody AuthRequest request) {
+            @RequestBody ForgotPasswordRequest request) {
 
         return ResponseEntity.ok(
                 service.forgotPassword(request.getEmail())
