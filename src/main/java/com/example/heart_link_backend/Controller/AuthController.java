@@ -6,6 +6,7 @@ import com.example.heart_link_backend.Service.AuthService;
 import com.example.heart_link_backend.dto.AuthRequest;
 import com.example.heart_link_backend.dto.AuthResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -87,6 +88,15 @@ public class AuthController {
     ) {
         String newBio = body.get("bio");
         return service.updateBio(token, newBio);
+    }
+
+    @PostMapping("/forgot-password")
+    public ResponseEntity<String> forgotPassword(
+            @RequestBody AuthRequest request) {
+
+        return ResponseEntity.ok(
+                service.forgotPassword(request.getEmail())
+        );
     }
 
 
