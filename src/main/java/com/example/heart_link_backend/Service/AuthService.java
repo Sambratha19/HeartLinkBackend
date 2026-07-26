@@ -98,6 +98,23 @@ public class AuthService {
         repo.save(user);
     }
 
+    public String forgotPassword(String email){
+
+        User user = repo.findByEmail(email)
+                .orElseThrow(()->new RuntimeException("User not found"));
+
+        String link =
+                "https://heart-link-lilac.vercel.app/reset-password?email="
+                        + user.getEmail();
+
+        emailService.sendPasswordResetMail(
+                user.getEmail(),
+                link
+        );
+
+        return "Mail sent";
+    }
+
     public void updateToggleLastSeen(String token, boolean showLstSeen){
         String jwtToken = token.startsWith("Bearer ")
                 ? token.substring(7)

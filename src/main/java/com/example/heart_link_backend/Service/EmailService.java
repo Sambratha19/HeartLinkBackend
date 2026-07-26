@@ -107,6 +107,47 @@ public class EmailService {
     }
 
 
+    public void sendPasswordResetMail(String to, String resetLink) {
+
+        String htmlContent =
+                """
+                <h2>Heart Link ❤️ Password Reset</h2>
+    
+                <p>Click the button below to reset your password.</p>
+    
+                <br>
+    
+                <a href="%s"
+                   style="
+                        background:#ff4d6d;
+                        color:white;
+                        padding:12px 24px;
+                        text-decoration:none;
+                        border-radius:6px;">
+                    Reset Password
+                </a>
+    
+                <br><br>
+    
+                <p>
+                If you didn't request this password reset,
+                please ignore this email.
+                </p>
+    
+                <br>
+    
+                <p>
+                Thank you,<br>
+                Heart Link Team
+                </p>
+                """.formatted(resetLink);
+
+        sendEmail(
+                to,
+                "Heart Link Password Reset",
+                htmlContent
+        );
+    }
 
     private void sendEmail(
             String receiver,
