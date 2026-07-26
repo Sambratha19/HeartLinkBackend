@@ -5,10 +5,12 @@ import com.example.heart_link_backend.Repository.UserRepository;
 import com.example.heart_link_backend.Service.AuthService;
 import com.example.heart_link_backend.dto.AuthRequest;
 import com.example.heart_link_backend.dto.AuthResponse;
+import com.example.heart_link_backend.dto.resetPasswordRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Map;
 
@@ -99,5 +101,16 @@ public class AuthController {
         );
     }
 
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(
+            @RequestBody resetPasswordRequest request) {
+
+        return ResponseEntity.ok(
+                service.resetPassword(
+                        request.getEmail(),
+                        request.getPassword()
+                )
+        );
+    }
 
 }

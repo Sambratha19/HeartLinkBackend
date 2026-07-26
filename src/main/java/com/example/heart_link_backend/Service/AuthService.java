@@ -190,5 +190,17 @@ public class AuthService {
         return "Bio Updated";
     }
 
+    public String resetPassword(String email, String password) {
+
+        User user = repo.findByEmail(email)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        user.setPassword(encoder.encode(password));
+
+        repo.save(user);
+
+        return "Password updated successfully";
+    }
+
 
 }
